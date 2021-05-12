@@ -1,4 +1,4 @@
-package com.company.chapter_3_properties_and_bindings.example_4_javafx_beans.adapting_java_Beans;
+package com.company.chapter_2_properties_and_bindings._4_javafx_beans.adapting_java_Beans;
 
 import java.beans.*;
 

@@ -1,4 +1,4 @@
-package com.company.chapter_3_properties_and_bindings.example_3_creating_bindings;
+package com.company.chapter_2_properties_and_bindings._2_creating_bindings;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.binding.*;
@@ -25,6 +25,7 @@ public class Main {
         // invalidate()
         // ObservableList<?> getDependencies()
         // dispose() to clean up resource
+
         /*Each dependency can send invalidation events to the Binding,
         making it invalidated. When the value of the Binding is queried through the
         get() or getValue() call, if it is invalidated, its value is recalculated based on the
@@ -33,17 +34,30 @@ public class Main {
         the JavaFX properties and bindings framework efficient. Attaching a ChangeListener
         forces eager evaluation.*/
 
-    ////////////////////////////////////////////////// Creating a custom binding \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    // All bindings are are custom bindings and there are several ways to create them:
-        //  Extend Abstract Base Class such as Double binding
-        //  Using factory methods in the utility class of bindings
-        //  Using fluent API method in the property and binding class
+    // Creating a custom binding
+        // All bindings are are custom bindings and there are several ways to create them:
+            //  Extend Abstract Base Class such as Double binding
+            //  Using factory methods in the utility class of bindings
+            //  Using fluent API method in the property and binding class
+        // Creating bindings by Direct Extension
 
-    ///////////////////////////////////////////////////Type Specializations\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    // These are specialized classes of the generic types Property<T> and Bindings<T>
-    // => Direct use of generic type is inefficients
-    // ====> BooleanProperty, IntegerProperty, LongProperty, FloatProperty, DoubleProperty, StringProperty, and ObjectProperty
+    // Type Specializations
+            // These are specialized classes of the generic types Property<T> and Bindings<T>
+            // => Direct use of generic type is inefficients
+            // => BooleanProperty, IntegerProperty, LongProperty, FloatProperty, DoubleProperty, StringProperty, and ObjectProperty
 
+    // Factory Methods in Binding
+            // add(), subtract(), multiply(), and divide()
+            // and(), or(), and not(), min(), max(), and negate();
+            // String length(), isEmpty(), and isNotEmpty()
+            // Relational operations: equal(), equalIgnoreCase(), greaterThan(), graterThanOrEqual(), lessThan(), lessThanOrEqual(),notEqualIgnoreCase() ,  notEqual()
+            // There are a set of factory method like:
+                // createDoubleBinding()
+                        // Create a binding from a Callable and a set of dependencies
+    // Create bindings with the Fluent API
+            // when()
+            // then()
+            // otherwise()
 
 
     public static void main(String[] args) {
@@ -71,21 +85,23 @@ public class Main {
         System.out.println("area.get() = " + area.get());*/
 
         // Example 2: Factory Method Binding
-        // add(), subtract(), multiply(), and divide()
-        // and(), or(), and not(), min(), max(), and negate();
-        // String length(), isEmpty(), and isNotEmpty()
-        // Relational operations: equal(), equalIgnoreCase(), greaterThan(), graterThanOrEqual(), lessThan(), lessThanOrEqual(),notEqualIgnoreCase() ,  notEqual()
-        // There are a set of factory method like: createDoubleBinding()
-        // DoubleBinding area = Bindings.createDoubleBinding(() -> {
-        //      return x.get() * y.get();
-        // }, x, y);
-        // Example 3: Create Binding with the Fluent API
-        // The fluent API for creating bindings is embodied in the IntegerExpression series of classes. These expression classes are superclasses
-        //of both the property classes and the binding classes
 
-        // Note: It should be noted that the fluent API has its limitations. As the relationship becomes
-        //      more complicated or goes beyond the available operators, the direct extension method is
-        //      preferred
+
+            // DoubleBinding area = Bindings.createDoubleBinding(() -> {
+            //      return x.get() * y.get();
+            // }, x, y);
+
+            StringBinding stringBinding = Bindings.createStringBinding(() -> {
+                return String.valueOf(args.length);
+            });
+
+            // Example 3: Create Binding with the Fluent API
+            // The fluent API for creating bindings is embodied in the IntegerExpression series of classes. These expression classes are superclasses
+            //of both the property classes and the binding classes
+
+            // Note: It should be noted that the fluent API has its limitations. As the relationship becomes
+            //      more complicated or goes beyond the available operators, the direct extension method is
+            //      preferred
 
 
         IntegerProperty x1 = new SimpleIntegerProperty(0);

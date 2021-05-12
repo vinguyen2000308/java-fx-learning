@@ -1,4 +1,4 @@
-package com.company.chapter_3_properties_and_bindings.example_1_key_concepts;
+package com.company.chapter_2_properties_and_bindings._1_key_concepts;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

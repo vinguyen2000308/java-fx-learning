@@ -1,7 +1,8 @@
-package com.company.chapter_3_properties_and_bindings.example_4_javafx_beans.JavaFXBeanModelExample;
+package com.company.chapter_2_properties_and_bindings._4_javafx_beans.JavaFXBeanModelExample;
 
 import javafx.beans.property.*;
 import javafx.scene.paint.Color;
+//Điều mà quá trình học tập lâu dài cần không phải là sự kiên trì, mà là một cơ chế và phương pháp giúp chúng ta có thể kiên trì
 
 public class JavaFXBeanModelEagerlyInstantiated {
 

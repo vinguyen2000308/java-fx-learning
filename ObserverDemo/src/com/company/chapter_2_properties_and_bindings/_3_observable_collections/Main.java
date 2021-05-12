@@ -1,4 +1,4 @@
-package com.company.chapter_3_properties_and_bindings.example_3_observable_collections;
+package com.company.chapter_2_properties_and_bindings._3_observable_collections;
 
 import javafx.collections.*;
 
@@ -12,16 +12,29 @@ public class Main {
 
 
         // Factory and Utility Methods in FXCollections
+            // copy(), fill(), replaceAll(), reverse(), rotate(), shuffle() and sort()
+            // They perform the same functionality as their java.util.collections excepts that they pay attention to minimize the number of list change notifications
         // Change Listeners for Observable Collections
+            // addListener(): add Observable or change
+            // removeListener()
                 //  Change Listeners for Observable Collections
+                    // The object holds much more information about the changes to underlying list.
+                    // next(), reset(): methods control a cursor that iterates through the discrete change when onChange() is called
+                    // wasRemove(), wasReplaced(), wasPermuted() -> tell you what kind of discrete change it is
+                    // For element added: from (inclusive) and to(exclusive) addedSize, addedSubList
+                    // For the element permuted -> getPermuted(int i): map the before index to after index
+
                 //  Change Events in MapChangeListener
                 //  Change Events in SetChangeListener
                 //  Change Events in ArrayChangeListener
         // Create Bindings  for Observable collections
+            // the factory methods for creating bindings out of observable collections
+            // Overloaded methods valueAt(), booleanValueAt(), integerValueAt(), longValueAt(), floatValueAt(), doubleValueAt(), and stringValueAt()
+                    // ObservableMap<Person, boolean>: person is a user to be authorized, boolean is the status
+                    // and user is an ObjectProperty<Person>: booleanValueAt(authorizations, user) is BooleanBinding that represents the authorization of the user
+             // bindContent() for binds a non-observable collection to an observable collection of the same kind.
 
 
-        //////////////////////////////////////  Factory and Utility Methods in FXCollections \\\\\\\\\\\\\\\\\\\\\\\\\\\
-        // copy(), fill(), replaceAll(), reverse(), rotate(), shuffle(), and sort()
         ObservableList<String> strings = FXCollections.observableArrayList();
         ObservableMap<String, String> map = FXCollections.observableHashMap();
         ObservableSet<Integer> set = FXCollections.observableSet();
@@ -48,10 +61,6 @@ public class Main {
         manipulateMap(map);
         manipulateSet(set);
         manipulateArray(array);*/
-        //////////////////////////////////////////////// Change Listeners for Observable Collections \\\\\\\\\\\\\\\\\\
-        //////////////////////////////////////////////// Change Events in MapChangeListener          \\\\\\\\\\\\\\\\\\
-        //////////////////////////////////////////////// Change Events in SetChangeListener          \\\\\\\\\\\\\\\\\\
-        //////////////////////////////////////////////// Change Events in ArrayChangeListener        \\\\\\\\\\\\\\\\\\
 
         // addListener()
         // removeListener()
@@ -93,24 +102,6 @@ public class Main {
         }
         System.out.println("Calling removeAll(" + "\"Third\", \"Fourth\"): ");
         strings.removeAll("Third", "Fourth");*/
-        /////////////////////////////// Change Listeners for Observable Collections - ListChangeListener \\\\\\\\\\\\\\\
-            // It represents one or more discrete changes, each of which can be
-                        // elements added
-                        // elements removed
-                        // elements replaced
-                        // elements permuted
-
-            //        next() and reset(): control a cursor that iterates through the discrete changes
-            //        The cursor is positioned before the first discrete change when
-            //          onChange() is calle
-            //        List of discrete change -> wasAdded(), wasRemoved(),  wasReplaced() and wasPermuted() what kind of event is
-            //        strings.addListener(new MyListener());
-            //        System.out.println("Calling addAll(\"Zero\"," +
-            //                " \"One\", \"Two\", \"Three\"): ");
-            //        strings.addAll("Zero", "One", "Two", "Three");
-            //        System.out.println("Calling" +
-            //                " FXCollections.sort(strings): ");
-
 
 
                 strings.addListener(new MyListener());
